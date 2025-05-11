@@ -123,7 +123,7 @@ ROS2とSAM2を利用した水面検知プログラム
   sudo apt install docker-compose
   ~~~
 
-1. nvidiaドライバ及びnvidia-dockerのインストール(注意)
+1.nvidiaドライバ及びnvidia-dockerのインストール(注意)
 
 * アプリケーションを表示する → ソフトウェアとアップデートを開く
   
@@ -172,7 +172,7 @@ ROS2とSAM2を利用した水面検知プログラム
   sudo systemctl restart docker
   ~~~
 
-3.SAM2とGroundingdino環境の構成
+2.SAM2とGroundingdino環境の構成
 
 * [こちら](https://github.com/facebookresearch/sam2)よりSAM2リポジトリをクローン
   
@@ -200,16 +200,18 @@ ROS2とSAM2を利用した水面検知プログラム
 
 * 本リポジトリをclone
   
-  ~~~ bash
-  cd ..
-  git clone https://github.com/HSR-OIT/OIT_SAM2GroundingDINO_Annotation.git
-  ~~~
+   ~~~bash
+   cd /work
+   mkdir ros2_ws/src
+   cd ros2_ws/src
+   git clone  https://github.com/Taker064/SAM2_ROS2.git
+   ~~~
 
 * 本リポジトリ内のDockerディレクトリ内の中身をsam2リポジトリ内に移動(gui上で移動させてもOK)
   
   ~~~bash
-  cd OIT_SAM2GroundingDINO_annotation/Docker
-  mv Dockerfile docker-compose.yaml ../../sam2
+  cd SAM2_ROS2/Docker
+  mv Dockerfile docker-compose.yaml ../../../sam2
   ~~~
 
 * sam2リポジトリ内でdocker-compose up
@@ -289,18 +291,7 @@ ROS2とSAM2を利用した水面検知プログラム
   cd ..
   ~~~
 
-5. 本リポジトリのクローン
-
-   Dockerコンテナ内にて
-
-   ~~~bash
-   cd /work
-   mkdir ros2_ws/src
-   cd ros2_ws/src
-   git clone https://github.com/Taker064/OIT_SAM2_Water-surface-detection.git
-   ~~~
-
-6. Docker環境内へのROS2環境導入
+5. Docker環境内へのROS2環境導入
    [こちら](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)を参考にコンテナ内にROS2humble-desktopをインストール
 
 ### プログラム概要
